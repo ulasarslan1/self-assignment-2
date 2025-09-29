@@ -1,3 +1,4 @@
+
 package self_assignment_2;
 
 
@@ -56,7 +57,5 @@ public class AGV {
 	}
 	
 	
-	
 }
-
 

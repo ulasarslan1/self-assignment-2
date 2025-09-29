@@ -1,3 +1,4 @@
+
 package self_assignment_2;
 
 import java.time.Duration;
