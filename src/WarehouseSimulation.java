@@ -19,7 +19,23 @@ public class WarehouseSimulation {
 		System.out.println(agv4.getData());
 		System.out.println("");
 		
-		// IoOperations - Adithya
+		 IOperation op1 = new IOperation("OP-1", "Load", Duration.ofHours(3).toMinutes(), 2);
+        op1.addResources(agv1);
+        op1.addResources(agv2);
+        
+        
+        
+        IOperation op2 = new IOperation("OP-2", "Carry", Duration.ofHours(3).plusMinutes(30).toMinutes(), 1);
+        op2.addResources(agv3);
+
+        
+        IOperation op3 = new IOperation("OP-3", "Discharge", Duration.ofHours(1).toMinutes(), 3);
+        
+        op3.addResources(agv4);
+        op3.addResources(agv2);
+        op3.addResources(agv1);
+        
+
 		
 		// Industrialprocess - Ulas
 		IndustrialProcess process1 = new IndustrialProcess("Process-1", 3);
@@ -31,8 +47,13 @@ public class WarehouseSimulation {
         IndustrialProcess process2 = new IndustrialProcess("Process-2", 2);
         process2.addProcess(op2);
         process2.addProcess(op3);
+
+		     // After adding operations to your processes
+        process1.printProcessInfo();  // prints details of Process 1
+        process2.printProcessInfo();  // prints details of Process 2
 		
 		// Other - Mrunal
 	}
 }
+
 
