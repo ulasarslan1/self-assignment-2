@@ -1,45 +1,61 @@
+
 package self_assignment_2;
 
-public class AGV {
 
+public class AGV {
+	
+	private String ID;
 	private double batteryLoad;
-	private double consumption;	
-	private float maxSpeed;
-	private float actSpeed;
-	private String stringId;
+	private double consumption;
 	private long chargingTime;
-	private Position pos;
+	private Position position;
+	private float maxspeed;
+	private float actspeed;
 	
-	public AGV (String loc_stringId, Position loc_position, double loc_batteryLoad,
-			double loc_consumption,long loc_chargingTime, float loc_maxSpeed, float loc_actSpeed) {
-		this.stringId = loc_stringId;
-		this.pos = loc_position;
-		this.batteryLoad = loc_batteryLoad;
-		this.consumption = loc_consumption;
-		this.chargingTime = loc_chargingTime;
-		this.maxSpeed = loc_maxSpeed;
-		this.actSpeed = loc_actSpeed;		
+	public AGV(String iD, double batteryLoad, double consumption, 
+			long chargingTime, Position position, float maxspeed,
+			float actspeed) {
+		this.ID = iD;
+		this.batteryLoad = batteryLoad;
+		this.consumption = consumption;
+		this.chargingTime = chargingTime;
+		this.position = position;
+		this.maxspeed = maxspeed;
+		this.actspeed = actspeed;
 	}
 	
-	public void setdata(String loc_stringId, Position loc_position, double loc_batteryLoad,
-			double loc_consumption,long loc_chargingTime, float loc_maxSpeed, float loc_actSpeed) {
-		this.stringId = loc_stringId;
-		this.pos = loc_position;
-		this.batteryLoad = loc_batteryLoad;
-		this.consumption = loc_consumption;
-		this.chargingTime = loc_chargingTime;
-		this.maxSpeed = loc_maxSpeed;
-		this.actSpeed = loc_actSpeed;		
-	}
-	
-	public String getData(){
-		return (" AGV ID = " + stringId + ", Position = " + pos +
-				", Battery " + batteryLoad + ", Consumption = " + consumption + 
-				", Charging Time = " + chargingTime + ", Max speed = " + maxSpeed + 
-				", Actual speed = " + actSpeed);
-	}
 	
 	public double getConsumption() {
 		return consumption;
 	}
+
+	
+ public double getBatteryLoad() {
+        return batteryLoad;
+    }
+ 
+	public void setData(String id, double battery, double cons, 
+			long time, Position pos, float maxspeed, float actspeed) {
+		this.ID = id;
+		this.batteryLoad = battery;
+		this.consumption = cons;
+		this.chargingTime = time;
+		this.position = pos;
+		this.maxspeed = maxspeed;
+		this.actspeed = actspeed;
+	}
+	
+	public String getData() {
+		return "AGV [ID = " + ID + ", batteryLoad = " + "%" +  batteryLoad + ", consumption = " + consumption + ", chargingTime = "
+				+ chargingTime + " m" +  ", position = " + position + ", maxspeed = " + maxspeed + " km/h"+ ", actspeed = " + actspeed + " km/h" + "]";
+	}
+
+
+	@Override
+	public String toString() {
+		return ID;
+	}
+	
+	
 }
+
