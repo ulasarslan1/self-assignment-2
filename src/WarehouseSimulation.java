@@ -22,7 +22,17 @@ public class WarehouseSimulation {
 		// IoOperations - Adithya
 		
 		// Industrialprocess - Ulas
+		IndustrialProcess process1 = new IndustrialProcess("Process-1", 3);
+        process1.addProcess(op1);
+        process1.addProcess(op2);
+        process1.addProcess(op3);
+        
+        
+        IndustrialProcess process2 = new IndustrialProcess("Process-2", 2);
+        process2.addProcess(op2);
+        process2.addProcess(op3);
 		
 		// Other - Mrunal
 	}
 }
+
