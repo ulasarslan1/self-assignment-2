@@ -1,0 +1,66 @@
+package self_assignment_2;
+
+public class IndustrialProcess {
+
+    private String processID;
+    private IOperation[] operations;
+    private int currentOpCount = 0; // how many operations we have
+
+    // Constructor
+    public IndustrialProcess(String id, int maxOps) {
+        processID = id;
+        operations = new IOperation[maxOps];
+    }
+
+    // Add an operation
+    public void addProcess(IOperation op) {
+        if (currentOpCount < operations.length) {
+            operations[currentOpCount] = op;
+            currentOpCount++;
+        } else {
+            System.out.println("Cannot add more operations to process: " + processID);
+        }
+    }
+
+    // Total duration
+    public long processDuration() {
+        long total = 0;
+        for (int i = 0; i < currentOpCount; i++) {
+            total += operations[i].getNominalTime();
+        }
+        return total;
+    }
+
+    // Total AGVs
+    public int processResources() {
+        int total = 0;
+        for (int i = 0; i < currentOpCount; i++) {
+            total += operations[i].getResources().length;
+        }
+        return total;
+    }
+
+    // Total energy
+    public int totalEnergyConsumption() {
+        int total = 0;
+        for (int i = 0; i < currentOpCount; i++) {
+            AGV[] agvs = operations[i].getResources();
+            for (int j = 0; j < agvs.length; j++) {
+                total += agvs[j].getConsumption();
+            }
+        }
+        return total;
+    }
+
+    // Print process info
+    public void printProcessInfo() {
+        System.out.println(">>> Process: " + processID + " <<<");
+        for (int i = 0; i < currentOpCount; i++) {
+            System.out.println(operations[i].getData());
+        }
+        System.out.println("Total Duration: " + processDuration() + " min");
+        System.out.println("Total AGVs: " + processResources());
+        System.out.println("Total Energy Consumption: " + totalEnergyConsumption() + " kwh");
+        System.out.println();
+    }
+}
