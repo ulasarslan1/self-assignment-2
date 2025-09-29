@@ -1,1 +1,2 @@
-# self-assignment-2
+- IOperaiton and Position classes are made by Ulaş Arslan.
+
